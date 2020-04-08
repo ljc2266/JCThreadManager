@@ -41,6 +41,16 @@ JCThreadManager::~JCThreadManager()
 			m_bThreadManagerClose = false;
 		}
 	}
+	if (m_pManagerLock)
+	{
+		delete m_pManagerLock;
+		m_pManagerLock = NULL;
+	}
+	if (m_pUserLock)
+	{
+		delete m_pUserLock;
+		m_pUserLock = NULL;
+	}
 }
 
 void JCThreadManager::InitManager(THREADPROC pfnThreadProc,void* pParam,bool bStart,string lockName)
